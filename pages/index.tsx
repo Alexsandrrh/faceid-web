@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
 import axios from "axios";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 import styles from "../styles/Home.module.css";
 import { CameraView } from "../components/CameraView";
@@ -63,7 +66,7 @@ const Home: NextPage = () => {
       const formData = new FormData();
       formData.append("file", image);
       axios
-        .post<[number, number, number]>("http://127.0.0.1:5000/", formData)
+        .post<[number, number, number]>(`${process.env.API_HOST}/`, formData)
         .then(({ data }) => {
           setItemsIds(data);
           setSeconds(INITIAL_SECONDS_VALUE);
