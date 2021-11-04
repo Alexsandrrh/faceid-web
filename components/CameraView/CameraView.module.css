@@ -1,0 +1,49 @@
+.root {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 45px;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.root.isStarted {
+  transform: scale(0.9);
+}
+
+.root.isStarted.shot {
+  transform: scale(0.75);
+  border-radius: 50%;
+  opacity: 0.1;
+  outline: 2px solid #f4f4f4;
+}
+
+.video {
+  height: var(--size);
+}
+
+.seconds {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  bottom: 25px;
+  width: 48px;
+  height: 48px;
+  background-color: #ff453a;
+  color: white;
+  border-radius: 50%;
+  transform: scale(0.3) translateY(100vh);
+  transition: 0.3s;
+}
+
+.seconds.isStarted {
+  transform: scale(1) translateY(0);
+}
